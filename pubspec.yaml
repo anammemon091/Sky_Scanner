@@ -1,0 +1,30 @@
+name: sky_scanner
+description: "A professional weather application for HNG Stage 3"
+publish_to: 'none'
+
+# This is the line your error is asking for
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Essential packages for our weather app
+  http: ^1.2.1
+  provider: ^6.1.2
+  geolocator: ^13.0.1
+  intl: ^0.19.0
+  lottie: ^3.1.2 # <--- Add this
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/animations/  # This registers every file inside that folder
+  
+  
