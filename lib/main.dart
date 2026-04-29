@@ -2,10 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'logic/weather_provider.dart';
 import 'presentation/screens/weather_home.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart'; 
 
-void main() {
-  // Ensures Flutter bindings are initialized before any logic runs
+// 1. Change void to Future<void> and add async
+Future<void> main() async {
+  // 2. Ensures Flutter bindings are initialized
   WidgetsFlutterBinding.ensureInitialized();
+
+  // 3. Load the .env file before the app starts
+  try {
+    await dotenv.load(fileName: ".env");
+  } catch (e) {
+    debugPrint("Warning: Could not load .env file. Make sure it exists in the root folder.");
+  }
   
   runApp(
     MultiProvider(
@@ -26,7 +35,6 @@ class SkyScanner extends StatelessWidget {
       title: 'Sky Scanner',
       debugShowCheckedModeBanner: false,
       
-      // Customizing the Dark Theme for a more "SaaS" look
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
@@ -35,7 +43,6 @@ class SkyScanner extends StatelessWidget {
           seedColor: Colors.cyanAccent,
           brightness: Brightness.dark,
         ),
-        // Global Text Theme for consistency
         textTheme: const TextTheme(
           displayLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
           bodyMedium: TextStyle(color: Colors.white70),

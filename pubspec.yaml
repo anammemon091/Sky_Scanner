@@ -16,6 +16,8 @@ dependencies:
   geolocator: ^13.0.1
   intl: ^0.19.0
   lottie: ^3.1.2 # <--- Add this
+  shared_preferences: ^2.2.2  # Add this line here
+  flutter_dotenv: ^6.0.1
 
 dev_dependencies:
   flutter_test:
@@ -26,5 +28,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/animations/  # This registers every file inside that folder
+    - .env  # Add this line under the assets section
   
   

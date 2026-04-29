@@ -8,7 +8,7 @@ class RemoteWeatherSource {
 
   RemoteWeatherSource({required this.client});
 
-  // --- EXISTING METHODS (BY CITY NAME) ---
+  // --- METHODS (BY CITY NAME) ---
 
   Future<Weather> fetchCurrentWeather(String cityName) async {
     final url = Uri.parse(
@@ -18,13 +18,14 @@ class RemoteWeatherSource {
   }
 
   Future<List<Forecast>> fetchForecast(String cityName) async {
+    // UPDATED: Now uses the constant and calls the helper properly
     final url = Uri.parse(
       '${AppConstants.baseUrl}${AppConstants.forecastEndpoint}?q=$cityName&appid=${AppConstants.apiKey}&units=${AppConstants.units}',
     );
     return _getForecastFromUrl(url);
   }
 
-  // --- NEW METHODS (BY COORDINATES) ---
+  // --- METHODS (BY COORDINATES) ---
 
   Future<Weather> fetchWeatherByLocation(double lat, double lon) async {
     final url = Uri.parse(
@@ -40,7 +41,7 @@ class RemoteWeatherSource {
     return _getForecastFromUrl(url);
   }
 
-  // --- HELPER METHODS (To avoid repeating logic) ---
+  // --- HELPER METHODS ---
 
   Future<Weather> _getWeatherFromUrl(Uri url) async {
     final response = await client.get(url);
@@ -56,10 +57,8 @@ class RemoteWeatherSource {
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final List list = data['list'];
-      return list
-          .where((item) => list.indexOf(item) % 8 == 0)
-          .map((item) => Forecast.fromJson(item))
-          .toList();
+      
+      return list.map((item) => Forecast.fromJson(item)).toList();
     } else {
       throw Exception('Failed to load forecast');
     }
