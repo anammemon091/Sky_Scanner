@@ -26,7 +26,7 @@ SkyScanner is a sleek, modern weather application built with Flutter that provid
 
 1.  **Clone the repository:**
     
-    git clone [https://github.com/YOUR_USERNAME/sky_scanner.git](https://github.com/anammemon091/sky_scanner.git)
+    git clone [https://github.com/anammeon091/sky_scanner.git]
     ```
 2.  **Navigate to the project folder:**
     
