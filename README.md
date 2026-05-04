@@ -1,60 +1,66 @@
-# SkyScanner 🌦️
+**🌤️ Sky Scanner: Cross-Platform Weather Intelligence**
+Sky Scanner is a robust, cross-platform weather application built with a single codebase using Flutter. This project demonstrates high-performance adaptation across Mobile (Android/iOS), Desktop (Windows), and Web platforms, utilizing modern UI/UX principles and efficient state management.
 
-SkyScanner is a sleek, modern weather application built with Flutter that provides real-time weather updates and a 5-day forecast. Designed with a focus on clean UI/UX and robust data persistence, it helps users stay ahead of the weather whether they are searching for a specific city or using their current GPS location.
+**🛠️ Cross-Platform Features**
+This application goes beyond simple UI scaling to provide platform-specific experiences:
 
-## 🚀 Features
+**🖥️ Desktop Excellence**
+Adaptive Layout: Uses a side-by-side "Weekly Intelligence" grid for large screens and a vertical scroll for mobile views.
 
-* **Real-time Weather:** Accurate current temperature, weather conditions, and high/lows.
-* **5-Day Forecast:** Detailed daily summary with a click-through for hourly details.
-* **Smart Search:** Search weather by city name with automatic persistence of your last search.
-* **GPS Integration:** One-tap weather updates based on your current location using `Geolocator`.
-* **Offline Support:** Caches the last searched city using `SharedPreferences` for instant access upon app restart.
-* **Dynamic UI:** Beautiful Lottie animations that change based on weather conditions (Sunny, Rainy, Cloudy, etc.).
-* **Error Handling:** Robust handling for network issues, invalid city names, and location permission denials.
+Application Menu: Full implementation of File, Edit, View, and Help menus for a native desktop feel.
 
-## 🛠️ Tech Stack
+Right-Click Context Menus: Quick actions available on the City Name and Forecast Cards.
 
-* **Framework:** [Flutter](https://flutter.dev/)
-* **Language:** [Kotlin](https://kotlinlang.org/) (Android) / [Dart](https://dart.dev/)
-* **State Management:** [Provider](https://pub.dev/packages/provider)
-* **Storage:** [shared_preferences](https://pub.dev/packages/shared_preferences)
-* **API:** [OpenWeatherMap API](https://openweathermap.org/api)
-* **Animations:** [Lottie for Flutter](https://pub.dev/packages/lottie)
-* **Date Formatting:** [intl](https://pub.dev/packages/intl)
+**Keyboard Shortcuts:**
 
-## 📦 Installation & Setup
+Ctrl + F: Focus Search Bar
 
-1.  **Clone the repository:**
-    
-    git clone [https://github.com/anammemon091/Sky_Scanner]
+Ctrl + R: Refresh Weather Data
 
-2.  **Navigate to the project folder:**
-    
-     sky_scanner
-    
-3.  **Install dependencies:**
+Ctrl + G: Get Current GPS Location
 
-    flutter pub get
-    
-4.  **Add your API Key:**
-    * Create a file named `constants.dart` in `lib/core/`.
-    * Add your OpenWeather API key: `const String apiKey = "YOUR_API_KEY_HERE";`
-5.  **Run the app:**
-    
-    flutter run
+Ctrl + Q: Quit Application
 
+Ctrl + I: About Sky Scanner
 
-## 🏗️ Architecture
+**📱 Mobile & 🌐 Web**
+Gestures: Smooth touch interactions and "Bouncing Physics" for mobile users.
 
-The project follows a clean directory structure to ensure scalability and maintainability:
+Animations: Powered by Lottie for realistic, high-fidelity weather state transitions.
 
-* `lib/data`: Models and data sources (Remote/Local).
-* `lib/logic`: State management using Provider.
-* `lib/presentation`: UI screens and custom widgets.
-* `lib/core`: App constants and theme configurations.
+Responsive Design: Content dynamically re-organizes based on window resizing without losing app state.
 
-## 👤 Author
+**🏗️ Technical Architecture**
+Framework: Flutter (Single Codebase)
 
-**Anam Memon**
-* Mobile Application Developer
-* [GitHub](https://github.com/anammemon091)
+State Management: Provider
+
+Data Layer: OpenWeather API with SharedPreferences for local persistence.
+
+Storage: Platform-agnostic storage mechanisms ensuring offline functionality.
+
+**📦 Setup & Installation**
+Clone the repository:
+
+Bash
+git clone https://github.com/anammemon091/Sky_Scanner.git
+Install dependencies:
+
+Bash
+flutter pub get
+Run the app:
+
+Mobile: flutter run
+
+Desktop: flutter run -d windows
+
+Web: flutter run -d chrome
+
+**👨‍💻 Development Process**
+Transforming this app into a cross-platform intelligence suite involved:
+
+Implementing Platform Conditionals to handle different input methods (Mouse vs. Touch).
+
+Utilizing Actions & Intents for deep keyboard integration on desktop systems.
+
+Structuring the folder system to separate shared logic (/logic, /core) from UI components.

@@ -23,11 +23,21 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
 
 flutter:
   uses-material-design: true
   assets:
-    - assets/animations/  # This registers every file inside that folder
-    - .env  # Add this line under the assets section
+    - assets/animations/ 
+    - assets/logo.png
+    - .env  
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo.png"
+  adaptive_icon_background: "#121212"
+  adaptive_icon_foreground: "assets/logo.png"
   
   
