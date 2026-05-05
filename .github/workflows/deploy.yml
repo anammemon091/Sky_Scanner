@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 on:
   push:
-    branches: [ cross_platform ] # This triggers the build every time you push to main
+    branches: [ "cross_platform" ] # Change this to your exact branch name
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,6 +11,7 @@ jobs:
         with:
           channel: 'stable'
       - run: flutter pub get
+      - run: flutter create . --platforms web # Add this to ensure web files exist
       - run: flutter build web --release --base-href "/Sky_Scanner/"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
