@@ -1,7 +1,9 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 class AppConstants {
-static String get apiKey => dotenv.env['OPENWEATHER_API_KEY'] ?? '';  
+  // This now pulls directly from the environment variable set during build
+  static const String apiKey = String.fromEnvironment('WEATHER_API_KEY');
+
   // Base URL for the API
   static const String baseUrl = 'https://api.openweathermap.org/data/2.5';
 
