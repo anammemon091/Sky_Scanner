@@ -31,8 +31,7 @@ flutter:
   assets:
     - assets/animations/ 
     - assets/logo.png
-    #- .env 
-
+    
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
