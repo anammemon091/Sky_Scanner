@@ -32,6 +32,7 @@ Future<void> main() async {
   );
 }
 
+
 class SkyScanner extends StatelessWidget {
   const SkyScanner({super.key});
 
