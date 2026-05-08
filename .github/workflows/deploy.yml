@@ -24,7 +24,11 @@ jobs:
       - run: flutter pub get
       
       - name: Build Web
-        run: flutter build web --release --base-href "/Sky_Scanner/"
+        # The --dart-define line below replaces your .env file
+        run: |
+          flutter build web --release \
+          --dart-define=WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} \
+          --base-href "/Sky_Scanner/"
 
       - name: Upload Artifact 📦
         uses: actions/upload-pages-artifact@v3
