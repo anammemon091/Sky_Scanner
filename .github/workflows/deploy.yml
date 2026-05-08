@@ -1,19 +1,27 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
-    branches: [ "cross_platform" ] # Change this to your exact branch name
+    branches:
+      - cross_platform  # Make sure this matches your branch name
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          
       - run: flutter pub get
-      - run: flutter create . --platforms web # Add this to ensure web files exist
-      - run: flutter build web --release --base-href "/Sky_Scanner/"
-      - name: Deploy
+      
+      - name: Build Web
+        run: flutter build web --release --base-href "/Sky_Scanner/"
+
+      - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
